@@ -1,0 +1,131 @@
+\mode<presentation>
+\ProvidesPackage{beamercolorthemehylleraas}[2018/06/26 hylleraas color theme]
+
+%
+% Define the Hylleraas official colors
+%
+\definecolor{hylleraas-blue2}{RGB}{60,92,251}
+\definecolor{hylleraas-blue}{RGB}{43,56,255}
+\definecolor{hylleraas-cyan}{RGB}{23,217,255}
+\definecolor{hylleraas-black}{RGB}{0,0,0}
+\definecolor{hylleraas-orange}{RGB}{175,46,16} % not official ...
+\definecolor{hylleraas-green}{RGB}{34,172,31} % not official ...
+
+%
+% Set the color of normal text
+%
+\setbeamercolor{normal text}{fg=black}
+
+%
+% Titlelike elements
+%
+\setbeamercolor{titlelike}{use=normal text, parent=normal text}
+
+\setbeamercolor{structure}{use=hylleraas-blue, fg=normal text.fg}
+\setbeamercolor{palette primary}{%
+  use=normal text,
+  fg=normal text.bg,
+  bg=normal text.fg
+}
+
+%
+% Examples and alerted text
+%
+\setbeamercolor{alerted text}{%
+  fg=hylleraas-orange
+}
+\setbeamercolor{example text}{%
+  fg=hylleraas-green
+}
+
+
+% Settings
+
+\setbeamercolor*{title page header}{fg=hylleraas-blue}
+\setbeamercolor*{author}{fg=hylleraas-blue}
+\setbeamercolor*{date}{fg=hylleraas-blue}
+\setbeamercolor*{institute}{fg=hylleraas-blue}
+
+% Footline
+
+\setbeamercolor{footline}{fg=black!40!white}
+
+% Default canvas background color
+\setbeamercolor*{canvas background}{fg=white}
+
+
+% Table of contents colors
+\setbeamercolor{section in toc}{fg=hylleraas-blue}
+\setbeamercolor{subsection in toc}{fg=hylleraas-blue}
+\setbeamercolor{section in toc shaded}{fg=hylleraas-blue!40!white}
+\setbeamercolor{subsection in toc shaded}{fg=hylleraas-blue!40!white}
+
+\newcommand{\hylleraas@normalcolors}{%
+
+  \setbeamercolor*{title page header}{fg=black}
+  \setbeamercolor*{author}{fg=black}
+  \setbeamercolor*{date}{fg=black}
+  \setbeamercolor*{institute}{fg=black}
+
+
+% Only image 3 uses  normalcolors. looks better with black.
+%    \setbeamercolor*{title page header}{fg=hylleraas-blue}
+%    \setbeamercolor*{author}{fg=hylleraas-blue}
+%    \setbeamercolor*{date}{fg=hylleraas-blue}
+%    \setbeamercolor*{institute}{fg=hylleraas-blue}
+
+
+  \setbeamercolor*{frametitle}{fg=hylleraas-blue}
+
+  \setbeamercolor{normal text}{fg=black}
+  \usebeamercolor[fg]{normal text}
+
+  \setbeamercolor{footline}{fg=black!40!white}
+
+
+  % Itemize/enumerate colors
+  \setbeamercolor{itemize item}{fg=hylleraas-blue}
+  \setbeamercolor{itemize subitem}{fg=hylleraas-blue}
+  \setbeamercolor{enumerate item}{fg=hylleraas-blue}
+  \setbeamercolor{enumerate subitem}{fg=hylleraas-blue}
+  \setbeamercolor{itemize/itemize body}{fg=green}
+
+
+  % Block colors
+  \setbeamercolor{block body}{bg=hylleraas-blue2!40!white}
+  \setbeamercolor{block title}{bg=hylleraas-blue2!40!white,fg=normal text.fg}
+  %\setbeamercolor{example body}{bg=hylleraas-green!40!white}
+  %\setbeamercolor{example title}{bg=hylleraas-green!40!white,fg=normal text.fg}
+}
+
+\newcommand{\hylleraas@darkcolors}{
+
+  \setbeamercolor*{title page header}{fg=white}
+  \setbeamercolor*{author}{fg=white}
+  \setbeamercolor*{date}{fg=white}
+  \setbeamercolor*{institute}{fg=white}
+
+  \setbeamercolor*{frametitle}{fg=white}
+
+  \setbeamercolor{footline}{fg=hylleraas-blue!60!white}
+
+  \setbeamercolor{normal text}{fg=white}
+  \usebeamercolor[fg]{normal text}
+
+  \setbeamercolor{itemize item}{fg=white}
+  \setbeamercolor{itemize subitem}{fg=white}
+  \setbeamercolor{enumerate item}{fg=white}
+  \setbeamercolor{enumerate subitem}{fg=white}
+  \setbeamercolor{itemize/itemize body}{fg=white}
+
+  % Block colors
+  \setbeamercolor{block body}{bg=hylleraas-blue2!80!white}
+  \setbeamercolor{block title}{bg=hylleraas-blue2!80!white,fg=normal text.fg}
+  %\setbeamercolor{example body}{bg=hylleraas-green!80!white}
+  %\setbeamercolor{exampe title}{bg=hylleraas-green!80!white,fg=normal text.fg}
+}
+
+\hylleraas@normalcolors
+
+\mode
+<all>

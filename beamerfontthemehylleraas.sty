@@ -1,0 +1,91 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{beamerfontthemehylleraas}[2018/06/26 hylleraas font theme]
+\RequirePackage{etoolbox}
+\RequirePackage{ifxetex}
+\RequirePackage{ifluatex}
+\RequirePackage{pgfopts}
+
+
+\ifboolexpr{bool {xetex} or bool {luatex}}{
+  \@ifpackageloaded{fontspec}{
+    \PassOptionsToPackage{no-math}{fontspec}
+  }{
+    \RequirePackage[no-math]{fontspec}
+  }%
+  \RequirePackage{mathspec}
+  \RequirePackage{cmbright}
+  \SetSymbolFont{largesymbols}{normal}{OMX}{iwona}{m}{n}
+  \setsansfont{Formular}[BoldFont=*-Bold]%
+  \setmonofont{Formular Mono}%
+  \setmathsfont(Greek)[Scale=1,BoldFont=Fira Sans Bold]{Fira Sans}
+
+%
+% Set up the sans fonts: Formular.
+% For greek letters, we use Fira Sans.
+%
+% CHANGE THESE COMMANDS TO SET UP DIFFERENT FONTS
+%
+%\setsansfont{Formular}[BoldFont=*-Medium]%
+%\setsansfont{Formular}[BoldFont=*-Bold]%
+%\setmonofont{Formular Mono}%
+%\setmathsfont(Greek)[Scale=1,BoldFont=Fira Sans Bold]{Fira Sans}
+
+%
+% Set up other math fonts
+%
+\RequirePackage[scr=rsfso,cal=euler,bb=fourier]{mathalfa} % some nice math glyphs
+\RequirePackage{cmbright}
+\SetSymbolFont{largesymbols}{normal}{OMX}{iwona}{m}{n}
+
+
+}{%
+
+%
+% If plain pdflatex is used, fall back to Helvetica fonts.
+% This looks pretty good, too!
+%
+\RequirePackage{helvet}
+
+
+}
+
+%
+% Set up mathematics fonts.
+%
+
+
+%
+% Set up font sizes for everything (?)
+%
+
+\setbeamerfont{itemize/enumerate subbody}{size=\normalsize}
+\setbeamerfont{itemize/enumerate body}{size=\normalsize}
+
+\setbeamerfont{title}{size={\fontsize{23}{26}},%
+                      series=\bfseries}
+\setbeamerfont{author}{size={\fontsize{6}{10}}}
+\setbeamerfont{date}{size={\fontsize{6}{10}}}
+\setbeamerfont{section title}{size=\Large,%
+                              series=\bfseries}
+\setbeamerfont{block title}{size=\normalsize,%
+                            series=\bfseries}
+\setbeamerfont{block title alerted}{size=\normalsize,%
+                                    series=\bfseries}
+\setbeamerfont*{subtitle}{size=\large}
+\setbeamerfont{frametitle}{size=\normalsize,series=\bfseries}%{\fontsize{6}{8}},%
+                           %series=\bfseries}
+\setbeamerfont{caption}{size={\footnotesize}}
+\setbeamerfont{caption name}{series=\bfseries}
+\setbeamerfont{description item}{series=\bfseries}
+%\setbeamerfont{page number in head/foot}{size={\fontsize{12}{4}}}
+\setbeamerfont{footline}{size=\scriptsize}
+\setbeamerfont{bibliography entry author}{size=\normalsize,%
+                                          series=\normalfont}
+\setbeamerfont{bibliography entry title}{size=\normalsize,%
+                                         series=\bfseries}
+\setbeamerfont{bibliography entry location}{size=\normalsize,%
+                                            series=\normalfont}
+\setbeamerfont{bibliography entry note}{size=\small,%
+                                        series=\normalfont}
+\setbeamerfont{standout}{size=\Large,%
+                         series=\bfseries}

@@ -1,0 +1,89 @@
+\mode<presentation>
+\ProvidesPackage{beamerthemehylleraas}[2018/06/26 hylleraas theme]
+
+\RequirePackage{tikz}
+\RequirePackage{ifthen}
+
+%
+% Force the user to use \documentclass[8pt]{beamer}.
+%
+% The template is designed for this font size.
+%
+% It is possible we should allow other sizes as well.
+%
+\ifthenelse{\NOT\equal{\beamer@size}{{size8.clo}}}{
+\PackageError{beamerthemehylleraas}{You must pass [8pt] as class option to beamer for correct font sizes, i.e., documentclass[8pt]{beamer}.}{}
+}{}
+
+
+%
+% Get some images: backgrounds and logos
+%
+\pgfdeclareimage[width=\paperwidth]{hylleraas1}{hylleraas-background-1.jpg}
+\pgfdeclareimage[width=\paperwidth]{hylleraas2}{hylleraas-background-2.jpg}
+\pgfdeclareimage[width=\paperwidth]{hylleraas3}{hylleraas-background-3.jpg}
+\pgfdeclareimage[width=\paperwidth]{hylleraas4}{hylleraas-background-4.jpg}
+\pgfdeclareimage[width=1.5cm]{footlogo-color}{hylleraas-color-rgb.png}
+\pgfdeclareimage[width=1.5cm]{footlogo-white}{hylleraas-white-rgb.png}
+
+%
+% Define commans that sets which logos to load for the title page top.
+%
+\newcommand{\hylleraas@darklogos}{
+  \def\beamer@innerthemehylleraas@toplogo{hylleraas-white-rgb.pdf}
+}
+\newcommand{\hylleraas@normallogos}{
+  \def\beamer@innerthemehylleraas@toplogo{hylleraas-color-rgb.pdf}
+}
+
+
+
+% Add a grid for debugging
+%\RequirePackage[texcoord,grid,gridunit=mm,gridcolor=red!10,subgridcolor=green!10]{eso-pic}
+%\gridSetup[mm]{0.5039370079mm}{2}{5}{20}{1} % Sets up a grid with spacing equiv to PPT slide size
+
+% Set paper size to 16:9 format
+%\geometry{papersize={33.87cm,19.05cm}}
+
+
+%
+% Load various parts of the theme
+%
+\useinnertheme{hylleraas}
+\useoutertheme{hylleraas}
+\usecolortheme{hylleraas}
+\usefonttheme{hylleraas}
+
+%
+% Turn off those pesky naviation symbols
+%
+\setbeamertemplate{navigation symbols}{}
+
+%
+% Add table of contents slide when a new seciton begins
+%
+\AtBeginSection{%
+\begin{frame}
+    \tableofcontents[currentsection, subsectionstyle=show/show/hide]
+\end{frame}
+}
+
+%
+% Fancy quotes commands.
+%
+% The templates are defined in beamerinntertemplatehylleraas.sty
+% fancyquote source - the source of the quote
+% fancyquote - the text
+\RequirePackage{csquotes}
+\newsavebox\hylleraas@mybox
+\newenvironment{fancyquote}[1][Unknown]
+  {\savebox\hylleraas@mybox{\usebeamertemplate{fancyquote source} ---#1}\begin{quote}\usebeamertemplate{fancyquote}\openautoquote\hspace*{-.6ex}}
+  {\unskip\closeautoquote\par\vspace{2ex}\usebox\hylleraas@mybox\end{quote}}
+
+  \newenvironment{fancymessage}
+    {\begin{quote}\usebeamertemplate{fancyquote}}
+    {\unskip\end{quote}}
+
+
+
+\mode<all>

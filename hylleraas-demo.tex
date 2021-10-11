@@ -1,0 +1,272 @@
+\documentclass[8pt]{beamer} % Note option
+\usepackage[utf8]{inputenc}
+
+
+% Select the hylleraas theme. Note the options.
+\usetheme{hylleraas}
+
+
+\begin{document}
+
+\title{Official Hylleraas Centre Beamer Template}
+\date{Presented for your pleasure}
+\author{S.~Kvaal and A.~Novoselov}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+
+\title{Hylleraas Centre for Quantum Molecular Sciences}
+\date[ISPN ’80]{Presentation at the great symposium}
+\author[Helgaker]{Trygve Helgaker and Kenneth Ruud}
+
+
+\begin{frame}[dark]
+  \titlepage
+\end{frame}
+
+
+\begin{frame}[image 2]
+  \titlepage
+\end{frame}
+
+\begin{frame}[image 3]
+  \titlepage
+\end{frame}
+
+\begin{frame}[image 4]
+  \titlepage
+\end{frame}
+
+\title{Adding logos to title pages}
+\addtitlepagelogo{\includegraphics[height=1.5cm]{erclogo-white.png}\hspace{.5cm}}
+\addtitlepagelogo{\includegraphics[height=1.5cm]{sfflogo-white.png}}
+\addtitlepagelogo{\includegraphics[height=1.5cm]{uitlogo-white.png}}
+\addtitlepagelogo{\includegraphics[height=1.5cm]{uiologo-white.png}}
+\begin{frame}[image 1]
+  \titlepage
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Outline}
+  \tableofcontents
+\end{frame}
+
+\section{Introduction}
+
+\begin{frame}
+  \frametitle{Welcome to the Hylleraas template}
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      \begin{itemize}[<+->]
+      \item This is a demo of the Hylleraas \texttt{beamer} template.
+      \item It is coded by Simen Kvaal, based on the PowerPoint template by Alexey Novoselov.
+      \item It uses the \alert{Formular typeface}, and for this to work, therefore requires the use of \alert{\texttt{xelatex}}, a version of \texttt{pdflatex} that allows system fonts to be used.
+      \item This presentation is compiled with:\\ \texttt{\$ xelatex hylleraas-demo.tex}.
+      \item You can also use \texttt{pdflatex}, which will use Helvetica instead.
+      \item The template is a work in progress, and the user is encouraged to submit comments, feature requests and \alert{bug reports}.
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+    \begin{center}
+      \begin{measuredfigure}
+        \includegraphics[height=5cm]{Hylleraas-portrett.jpg}
+        \caption{This is Egil Hylleraas}
+      \end{measuredfigure}
+    \end{center}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+
+\begin{frame}{Fonts}
+
+  \begin{itemize}
+  \item  Main text: Formular. Licensed from Brown Fox to Hylleraas.
+  \item Greek mathematics: Fira Sans from Google. Free.
+  \item Install fonts using the system-provided tool on Mac, Windows or Linux systems. The font is then avalilable for \texttt{xelatex}.
+  \item In a later version of the template, I will implemenet fallback to system fonts if standard \texttt{pdflatex} is run, or if Formular/Fira Sans are not available.
+  \end{itemize}
+
+
+\end{frame}
+
+\begin{frame}
+\frametitle{To be implemented}
+\begin{enumerate}
+\item
+  Proper error handling for fonts
+\item
+  Fallback to Helvetica in the case of \texttt{pdflatex} and/or missing fonts
+\item
+  The current version is 4:3 only. Support for 16:9 will be added.
+\end{enumerate}
+\end{frame}
+
+\section{Lists and enumerations}
+
+\begin{frame}
+  \frametitle{Itemize}
+  \begin{itemize}
+    \item This is an item
+    \item Here is another item with some \alert{alerted text}
+    \begin{itemize}
+    \item Nested itemize
+    \item It looks nice
+    \end{itemize}
+    \item A final item
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Enumerate}
+  \begin{enumerate}
+    \item This is an item
+    \item Here is another item with some \alert{alerted text}
+    \begin{enumerate}
+    \item Nested enumerate
+    \item It looks nice
+    \end{enumerate}
+    \item A final item
+  \end{enumerate}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Description}
+  Here is the \alert{\texttt{description}} environment:
+  \begin{description}
+    \item[Zeroeth law] Thermal equilibrium
+    \item[First law] Conservation of energy, etc
+    \item[Second law] Monotone entropy
+    \item[Third law] Entropy goes to zero as $T\to 0$
+  \end{description}
+\end{frame}
+
+\section{Mathematics}
+
+
+\begin{frame}\frametitle{The mathematics fonts}
+  \begin{itemize}
+    \item Mathematics with sans serif fonts like Helvetica and Formular can be tricky
+    \item I have used various tricks to make it look good enough for government work
+    \item In the next slide we can see some examples
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{The look of mathematics in the Hylleraas template}
+
+A few elements are displayed here:
+\begin{itemize}
+\item Greek letters: $\alpha$, $\beta$, $\gamma$, $\delta$, $\rho$, $\varrho$, $\sigma$, $\varsigma$, $\phi$, $\varphi$, $\psi$
+\item Some uppercase Greek letters: $\Gamma$, $\Delta$, $\Psi$, $\Phi$, $\Theta$
+\item This is the time-independent Schrödinger equation:
+\[ \hat{H} \Psi = E\Psi, \quad \hat{S}, \tilde{S} \]
+\item I am not entirely happy about the accent placements, but it seems hard to solve right now \ldots
+\item An integral equation:
+  \[ u(x) + \lambda \int_0^1 k(x,y) u(y) \; dy = f(x), \quad x \in [0,1] \]
+\item Inline integral: $w^{pq}_{rs} := \iint \phi_p(\mathbf{x})\phi_q(\mathbf{y})w(|\mathbf{x}-\mathbf{y}|) \phi_r(\mathbf{x})\phi_s(\mathbf{y})\; d\mathbf{x}d\mathbf{y}$
+\item Display style integral:
+\[ w^{pq}_{rs} := \iint \phi_p(\mathbf{x})\phi_q(\mathbf{y})w(|\mathbf{x}-\mathbf{y}|) \phi_r(\mathbf{x})\phi_s(\mathbf{y})\; d\mathbf{x}d\mathbf{y} \]
+\item Some blackboard symbols: $\mathbb{C}$,$\mathbb{F}$,$\mathbb{R}$
+\item A useful formula everyone should know:
+\[ x_{\pm} = -\frac{b}{2} \pm \sqrt{\left(\frac{b}{2}\right)^2 - c} \]
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}{Theorems}
+This is how a theorem block looks like in this version:
+\begin{theorem}[First fundamental theorem of calculus]
+Lef $f$ be a continuous real-valued fnction on the interval $[a,b]$. Let $F$ be the function defined by
+\[ F(x) = \int^x_a f(y) \; dy. \]
+Then, $F$ is uniformly continuous on $[a,b]$, differentible on $(a,b)$, and
+\[ F'(x) = f(x). \]
+\end{theorem}
+\end{frame}
+
+
+%\framebackground{dark}
+%\setbeamercolor{background canvas}{fg=hylleraas-blue2}
+
+\section{Alternate backgrounds}
+
+\begin{frame}{Alternate bakcgrounds and colors}
+  \begin{itemize}
+  \item
+    In the hylleraas theme, we have defined alternate backgrounds with corresponding alternate
+    color schemes. This can be used to accenuate certain points and to liven up a little.
+  \item
+    The alternate schemes are accessed by passing an option to the \texttt{frame} environment.
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}[dark]
+    \frametitle{A darker scheme}
+
+    \begin{itemize}
+      \item  This slide shows a darker background and lighter text.
+      \item Note the changed logo
+    \end{itemize}
+
+    \begin{theorem}[Errors]
+      There is always one more error.
+    \end{theorem}
+
+\end{frame}
+
+\begin{frame}[dark]
+  \frametitle{~}
+  \begin{fancyquote}[Albert Einstein]
+    This slide shows a fancy quote on an darker background.
+  \end{fancyquote}
+\end{frame}
+
+\begin{frame}[image 1]
+
+  \frametitle{Fancy quotes}
+  \begin{fancyquote}[Unknown]
+    This slide shows an image background. There are four predefined images.
+  \end{fancyquote}
+\end{frame}
+
+\begin{frame}[image 2]
+\frametitle{Fancy quote slide}
+\begin{fancyquote}[T.S. Eliot]
+This slide has subtler background.
+\end{fancyquote}
+\end{frame}
+
+\begin{frame}[image 3]
+\frametitle{Fancy quote slide}
+\begin{fancyquote}[John Lennon]
+I am the egg man, \\
+they are the egg men \\
+I am the walrus, \\
+goo goo g'joob
+\end{fancyquote}
+\end{frame}
+
+\begin{frame}[image 4]
+\frametitle{Fancy quote slide}
+\begin{fancyquote}[Paul A.M. Dirac]
+Never trust random quotes you find on the internet while googling solutions to your \LaTeX~problems.
+\end{fancyquote}
+\end{frame}
+
+\begin{frame}
+  \frametitle{An example}
+  \begin{example}[Ok]
+  Yes
+  \end{example}
+\end{frame}
+
+%\framebackground{light}
+
+
+
+\end{document}

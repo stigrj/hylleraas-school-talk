@@ -1,0 +1,150 @@
+\mode<presentation>
+\ProvidesPackage{beamerinnerthemehylleraas}[2018/06/26 hylleraas inner theme]
+
+
+\RequirePackage[absolute,overlay]{textpos}
+\RequirePackage{longfbox}
+\RequirePackage{ifthen}
+\RequirePackage{etoolbox} % for list separation patching
+
+\defbeamertemplate{background}{hylleraas-frame-bg}{}
+
+% Default text box style.
+%
+% This is a style for longfbox, a way to typeset boxes much like browsers render
+% boxes. It has full support for css.
+%
+\newfboxstyle{defaultbox}{margin=0cm,padding=0.15cm,text-align=left,border-style=none}
+
+%
+% Erase footline for titlepage
+%
+\def\ps@navigation@titlepage{%
+  \setbeamertemplate{footline}{} % Erase footline
+  \@nameuse{ps@navigation}}
+
+\setcounter{page}{0} % A hack used to detect the title page.
+
+%
+% Define title page logos mechanics.
+%
+% Start with empty logos, and let user add code for each logo he/she wants.
+% See the demo for examples.
+%
+\newcounter{titlepagelogos}
+\defbeamertemplate{title page logos}{empty}{}
+\setbeamertemplate{title page logos}[empty]
+% Provide a command to add a logo
+\newcommand{\addtitlepagelogo}[1]{\stepcounter{titlepagelogos}\addtobeamertemplate{title page logos}{}{#1}}
+
+%
+% Define title page layout
+%
+\defbeamertemplate*{title page}{hylleraas}%[1][]
+{
+%
+% Add the top logo
+%
+\begin{textblock*}{2.75cm}(0.26cm,0.5cm)
+  \begin{longfbox}[defaultbox,width=2.75cm,padding=0cm,height-align=top]
+    \includegraphics[width=2cm]{\beamer@innerthemehylleraas@toplogo}%
+  \end{longfbox}
+\end{textblock*}
+%
+% Add the remaining elements. If there are custom logos, these push
+% the remaining elements upward.
+%
+\ifnum\value{titlepagelogos} = 0 % Are there zero logos?
+  %
+  % Add title page header
+  %
+  \begin{textblock*}{11cm}(0.25cm,3.0cm)
+    \begin{longfbox}[defaultbox,width=11cm,height=4cm,height-align=bottom]
+      \usebeamerfont{title}%
+      \usebeamercolor[fg]{title page header}\inserttitle%
+    \end{longfbox}%
+  \end{textblock*}
+  %
+  % Add date and author
+  %
+  \begin{textblock*}{11cm}(0.25cm,7.75cm)
+    \begin{longfbox}[defaultbox,width=10cm,height=0.5cm,height-align=middle]
+      \usebeamerfont{date}\usebeamercolor[fg]{date}\insertdate \\
+    \usebeamerfont{author}\usebeamercolor[fg]{author}\insertauthor
+  \end{longfbox}
+\end{textblock*}%
+\else % we have one or more logos
+  %
+  % Add title page header
+  %
+  \begin{textblock*}{11cm}(0.25cm,1.25cm)
+    \begin{longfbox}[defaultbox,width=11cm,height=4cm,height-align=bottom]
+      \usebeamerfont{title}%
+      \usebeamercolor[fg]{title page header}\inserttitle%
+    \end{longfbox}%
+  \end{textblock*}
+  %
+  % Add date and author
+  %
+  \begin{textblock*}{11cm}(0.25cm,6cm)
+    \begin{longfbox}[defaultbox,width=10cm,height=0.5cm,height-align=middle]
+      \usebeamerfont{date}\usebeamercolor[fg]{date}\insertdate \\
+      \usebeamerfont{author}\usebeamercolor[fg]{author}\insertauthor
+    \end{longfbox}
+  \end{textblock*}%
+  %
+  % Add logos
+  %
+  \begin{textblock*}{11cm}(0.25cm,7.75cm)
+    \begin{longfbox}[defaultbox,width=10cm,height=1.5cm,height-align=middle]
+      \usebeamertemplate{title page logos}
+    \end{longfbox}
+  \end{textblock*}%
+\fi
+\thispagestyle{navigation@titlepage}%\addtocounter{page}{-1}
+}
+
+%
+% Set up itemize and enumerate environments.
+%
+
+% set up list separation
+\makeatletter
+\patchcmd{\@listI}{\itemsep3\p@}{\itemsep0.2cm}{}{}
+\makeatother
+
+\setbeamertemplate{itemize item}[circle]
+\addtobeamertemplate{itemize item}{}{\hspace{0.1cm}}
+\setbeamertemplate{itemize subitem}{$-$\hspace{0.1cm}}
+\addtobeamertemplate{enumerate item}{}{\hspace{0.1cm}}
+\addtobeamertemplate{enumerate subitem}{}{\hspace{0.1cm}}
+
+\addtobeamertemplate{description item}{}{\hspace{0.1cm}}
+\addtobeamertemplate{description subitem}{}{\hspace{0.1cm}}
+
+%
+% Set up description environment
+%
+
+%
+% Set up fancy quotes
+%
+\defbeamertemplate{fancyquote}{default}{\normalfont\bfseries\Huge\centering}
+\defbeamertemplate{fancyquote source}{default}{\normalfont\bfseries\Large\centering}
+\setbeamertemplate{fancyquote}[default]
+\setbeamertemplate{fancyquote source}[default]
+
+%
+% Figure stuff
+%
+\RequirePackage{threeparttable}
+\RequirePackage{caption}
+\captionsetup[measuredfigure]{justification=raggedright,singlelinecheck=false}
+% Use measuredfigure to get left-lustified captions.
+
+% Description environments.
+% Block environments.
+% Theorem and proof environments.
+% Figures and tables.
+% Footnotes.
+% Bibliography entries

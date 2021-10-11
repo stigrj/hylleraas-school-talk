@@ -1,0 +1,153 @@
+\mode<presentation>
+\ProvidesPackage{beamerouterthemehylleraas}[2018/06/26 hylleraas outer theme]
+
+\RequirePackage[absolute,overlay]{textpos}
+\RequirePackage{longfbox}
+
+% Foot line / head line
+
+\defbeamertemplate{footline}{hylleraas-logo-footline}{
+  %\begin{longfbox}[defaultbox,width=\paperwidth,height=1.5cm,padding=0.0cm,margin=0.0cm,height-align=bottom]
+    \begin{longfbox}[defaultbox,width=1cm,padding=0cm,padding-left=0.25cm,padding-bottom=0.25cm]\usebeamerfont{footline}\usebeamercolor[fg]{footline}\insertframenumber/\inserttotalframenumber%
+    \end{longfbox}
+%    \hfill\begin{longfbox}[defaultbox,width=1.5cm,padding=0cm,margin-right=0.15cm,height-align=bottom]\includegraphics[width=1.5cm]{hylleraas-color-rgb.pdf}\end{longfbox}
+  %\end{longfbox}
+  \begin{tikzpicture}[overlay]
+    \node[xshift=-2.2cm,yshift=0.1cm] at (current page.south east) {\includegraphics[width=1.5cm]{hylleraas-color-rgb.pdf}};
+  \end{tikzpicture}
+
+}
+\defbeamertemplate{footline}{hylleraas-logo-footline white}{
+  %\begin{longfbox}[defaultbox,width=\paperwidth,height=1.5cm,padding=0.0cm,margin=0.0cm,height-align=bottom]
+    \begin{longfbox}[defaultbox,width=1cm,padding=0cm,padding-left=0.25cm,padding-bottom=0.25cm]\usebeamerfont{footline}\usebeamercolor[fg]{footline}\insertframenumber/\inserttotalframenumber%
+    \end{longfbox}
+%    \hfill\begin{longfbox}[defaultbox,width=1.5cm,padding=0cm,margin-right=0.15cm,height-align=bottom]\includegraphics[width=1.5cm]{hylleraas-white-rgb.pdf}\end{longfbox}
+  %\end{longfbox}
+  \begin{tikzpicture}[overlay]
+    \node[xshift=-2.2cm,yshift=0.1cm] at (current page.south east) {\includegraphics[width=1.5cm]{hylleraas-white-rgb.pdf}};
+  \end{tikzpicture}
+}
+
+
+
+\setbeamertemplate{footline}[hylleraas-logo-footline]
+
+% Sidebars
+
+
+% TODO: support subtitle.
+\defbeamertemplate*{frametitle}{hylleraas}[1][]
+{
+\begin{textblock*}{12cm}(0.5cm,0.5cm)
+  \begin{longfbox}[defaultbox,width=12cm,padding=0.0cm,height=0.5cm,height-align=middle]
+    \usebeamerfont{frametitle}\usebeamercolor[fg]{frametitle}\insertframetitle
+  \end{longfbox}
+\end{textblock*}
+\vspace{1.5cm}
+}
+
+% Set the margins
+\setbeamersize{text margin left=.5cm}
+\setbeamersize{text margin right=.5cm}
+
+
+
+\defbeamertemplate{logo}{hylleraas}{%
+  %\begin{textblock*}{5.5cm}(1.5cm,1cm)
+  %  \begin{longfbox}[defaultbox,width=5cm,padding=0cm,height-align=top]
+      \includegraphics[width=2cm]{hylleraas-color-rgb.pdf}%
+  %  \end{longfbox}
+  %\end{textblock*}
+}
+
+
+
+
+% Set up an alternate background for fancy quotes etc
+
+\defbeamertemplate*{background canvas}{mydefault}
+{%
+  \ifbeamercolorempty[bg]{background canvas}{}{\color{bg}\vrule width\paperwidth height\paperheight}% copied beamer default here
+}
+
+\defbeamertemplate*{background canvas}{dark}
+{%
+  \color{hylleraas-blue2}\vrule width\paperwidth height\paperheight% added bg color
+}
+
+\defbeamertemplate*{background canvas}{image 1}
+{
+  \begin{tikzpicture}
+      \useasboundingbox (0,0) rectangle (\the\paperwidth, \the\paperheight);
+      \pgftext[at=\pgfpoint{0cm}{0cm}, left, base]{\pgfsetfillopacity{1.0}\pgfuseimage{hylleraas1}}; %
+  \end{tikzpicture}
+}
+\defbeamertemplate*{background canvas}{image 2}
+{
+  \begin{tikzpicture}
+      \useasboundingbox (0,0) rectangle (\the\paperwidth, \the\paperheight);
+      \pgftext[at=\pgfpoint{0cm}{0cm}, left, base]{\pgfsetfillopacity{1.0}\pgfuseimage{hylleraas2}}; %
+  \end{tikzpicture}
+}
+\defbeamertemplate*{background canvas}{image 3}
+{
+  \begin{tikzpicture}
+      \useasboundingbox (0,0) rectangle (\the\paperwidth, \the\paperheight);
+      \pgftext[at=\pgfpoint{0cm}{0cm}, left, base]{\pgfsetfillopacity{1.0}\pgfuseimage{hylleraas3}}; %
+  \end{tikzpicture}
+}
+\defbeamertemplate*{background canvas}{image 4}
+{
+  \begin{tikzpicture}
+      \useasboundingbox (0,0) rectangle (\the\paperwidth, \the\paperheight);
+      \pgftext[at=\pgfpoint{0cm}{0cm}, left, base]{\pgfsetfillopacity{1.0}\pgfuseimage{hylleraas4}}; %
+  \end{tikzpicture}
+}
+
+\BeforeBeginEnvironment{frame}{%
+  % For the title frame, the default is an image. For all other frames, the default is mydefault.
+  \ifthenelse{\value{page} = 0}{\setbeamertemplate{background canvas}[image 1]\hylleraas@darkcolors\hylleraas@darklogos}{\setbeamertemplate{background canvas}[mydefault]\hylleraas@normalcolors\hylleraas@normallogos}%
+
+  \setbeamertemplate{footline}[hylleraas-logo-footline]%
+%  \hylleraas@normalcolors
+}
+\define@key{beamerframe}{dark}[true]{%
+  \setbeamertemplate{background canvas}[dark]%
+  \setbeamertemplate{footline}[hylleraas-logo-footline white]%
+  \hylleraas@darkcolors
+  \hylleraas@darklogos
+}
+\define@key{beamerframe}{image 1}[true]{%
+  \setbeamercovered{invisible}%
+  \setbeamertemplate{background canvas}[image 1]%
+  \setbeamertemplate{footline}[hylleraas-logo-footline white]%
+  \hylleraas@darkcolors
+  \hylleraas@darklogos
+}
+\define@key{beamerframe}{image 2}[true]{%
+  \setbeamercovered{invisible}%
+  \setbeamertemplate{background canvas}[image 2]%
+  \setbeamertemplate{footline}[hylleraas-logo-footline white]%
+  \hylleraas@darkcolors
+  \hylleraas@darklogos
+}
+\define@key{beamerframe}{image 3}[true]{%
+  \setbeamercovered{invisible}%
+  \setbeamertemplate{background canvas}[image 3]%
+  \setbeamertemplate{footline}[hylleraas-logo-footline white]%
+  \hylleraas@normalcolors
+  \hylleraas@normallogos
+}
+\define@key{beamerframe}{image 4}[true]{%
+  \setbeamercovered{invisible}%
+  \setbeamertemplate{background canvas}[image 4]%
+  \setbeamertemplate{footline}[hylleraas-logo-footline white]%
+  \hylleraas@darkcolors
+  \hylleraas@darklogos
+}
+
+
+
+%\setbeamertemplate{logo}[hylleraas]
+
+\mode<all>
