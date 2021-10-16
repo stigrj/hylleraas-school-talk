@@ -1,0 +1,83 @@
+\begin{frame}
+    \frametitle{Integral formulation SCF}
+    \centering
+    \textbf{Kohn-Sham equations}
+    \begin{equation}
+	\nonumber
+	\bigg[-\frac{1}{2}\nabla^2 + \hat{V}\bigg]\orbital_i(r) = \epsilon_i \orbital_i(r)
+    \end{equation}
+
+    \vspace{5mm}
+
+    \textbf{Rewrite using} $\mu_i^2 = -2\epsilon_i$
+    \begin{align}
+	\nonumber
+	\Big[-\nabla^2 + \mu_i^2\Big]\orbital_i(r) =&\ -2\hat{V}\orbital_i(r)\\
+	\nonumber
+	\orbital_i(r) =&-2\Big[-\nabla^2 + \mu_i^2\Big]^{-1}\hat{V}\orbital_i(r)\\
+	\nonumber
+	\orbital_i =&-2\hat{G}_i\Big[\hat{V}\orbital_i\Big]
+    \end{align}
+
+    \vspace{5mm}
+
+    \textbf{Bound-State Helmholtz operator}
+    \begin{equation}
+	\nonumber
+	\hat{G}_if(r) = \int \frac{e^{-\mu_i |r-r'|}}{4\pi|r-r'|}f(r')dr'
+    \end{equation}
+
+    \vspace{5mm}
+
+    \centering
+    \tiny
+    MH Kalos,
+    {\it Phys. Rev.},
+    \textbf{128(4)},
+    1791 (1962)\\
+    RJ Harrison, GI Fann, T Yanai, Z Gan and G Beylkin,
+    {\it J. Chem. Phys.},
+    \textbf{121},
+    11587 (2004)
+\end{frame}
+
+%\begin{frame}
+%    \frametitle{Total energy calculation}
+%    \centering
+%    \textbf{Kohn-Sham energy expression}
+%    \begin{equation}
+%        \nonumber
+%        E[\rho] = T_s[\rho] + V_{en}[\rho] + J[\rho] + E_{xc}[\rho]
+%    \end{equation}
+%
+%    \vspace{3mm}
+%
+%    \textbf{Closed-shell system}
+%    \begin{equation}
+%        \nonumber
+%        E = \sum_i^{N/2} 2\langle \orbital_i|\hat{T}|\orbital_i \rangle
+%	    + \int \rho(r)v_{nuc}(r) \ud r
+%	    + \frac{1}{2} \int \rho(r)v_{el}(r) \ud r
+%	    + \int F_{xc} \ud r
+%    \end{equation}
+%
+%    \vspace{3mm}
+%
+%    \textbf{Sum of orbital energies}
+%    \begin{equation}
+%        \nonumber
+%        \sum_i^{N/2} 2\epsilon_i
+%	    = \sum_i^{N/2} 2\langle\orbital_i|\hat{T} + \hat{V}|\orbital_i\rangle
+%	    = \sum_i^{N/2} 2\langle\orbital_i|\hat{T}|\orbital_i\rangle
+%	        + \int \rho(r)\Big[v_{nuc}(r)+v_{el}(r)+v_{xc}(r)\Big] \ud r
+%    \end{equation}
+%
+%    \vspace{3mm}
+%
+%    \textbf{Alternative expression}
+%    \begin{equation}
+%        \nonumber
+%        E = 2 \sum_i^{N/2} \epsilon_i - \frac{1}{2} \int \rho(r)v_{el}(r) \ud r
+%	    + \int F_{xc} \ud r - \int \rho(r)v_{xc}(r) \ud r
+%    \end{equation}
+%\end{frame}

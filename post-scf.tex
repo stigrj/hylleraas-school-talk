@@ -1,0 +1,43 @@
+\begin{frame}
+  \frametitle{Post-SCF methods}
+
+  \textbf{Complications when going beyond SCF:}
+
+  \vspace{2mm}
+
+  \begin{itemize}
+    \item New formalism in \emph{first quantization} developed by J.Kottmann and F. Bischoff
+    \item CC2 residual equations:
+      \begin{align}
+      |\tau_i \rangle &= -2\Helm_i\left[
+                         |\potential_{\tau_i}\rangle
+                         + \nuclear |\tau_i\rangle
+                         + 2\coulomb |\tau_i\rangle
+                         - \exchange|\tau_i\rangle
+                         \right]\\
+      |u_{ij} \rangle &= -2\Helm_{ij}\left[
+                         Q_{12}^t\tilde{g}_{12}^{ij} |t_it_j \rangle
+                         + \nuclear |u_{ij}\rangle
+                         + 2\coulomb_{12} |u_{ij}\rangle
+                         - \exchange_{12}|u_{ij}\rangle
+                         \right]
+      \end{align}
+    \item Singles: $|\tau_i\rangle$ is a 3D function and $\Helm_i$ is the usual (6D) BSH operator
+    \item Doubles: $|u_{ij}\rangle$ is a 6D function and $\Helm_{ij}$ is a 12D BSH operator
+    \item CC3/CCSD(T) would require 9D functions and 18D BSH operators!
+    \item Key ingredients: SVD and \emph{regularizations} to remove cusps
+    \item Bonus feature: reduced formal scaling, $O(N_{occ}^3)$ vs $O(N^5)$ for LCAO (CC2/MP2)
+  \end{itemize}
+  
+  \vspace{5mm}
+  \centering
+  \tiny
+  J. Kottmann, F. Bischoff,
+  {\it J. Chem. Theory. Comput.},
+  \textbf{13 (12)},
+  5945-5955 (2017)\\
+  J. Kottmann, F. Bischoff,
+  {\it J. Chem. Theory. Comput.},
+  \textbf{13 (12)},
+  5956-5965 (2017)
+\end{frame}

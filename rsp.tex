@@ -1,0 +1,29 @@
+\begin{frame}
+  \frametitle{Linear Response}
+  Complications when generalizing
+  \begin{itemize}
+    \item Molecular properties as perturbations
+    \item Obtaining perturbed orbitals from Sternheimer equations
+    \item Obtaining molecular properties from perturbed orbitals
+    \item Final LS integral Sternheimer equations
+    \item Discuss: no virtual orbitals, sample virtual space with BSH and project out occupied space
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Linear Response}
+  \begin{itemize}
+    \item Sternheimer equations for (static) linear response:
+      \begin{equation}
+        \fockOper^{(0)}\orbital_i^{(1)} + \fockOper^{(1)}\orbital_i^{(0)} =
+        \sum_j \fockMat_{ij}^{(0)}\orbital_j^{(1)} + \sum_j \fockMat_{ij}^{(1)}\orbital_i^{(0)}
+      \end{equation}
+    \item In integral form:
+      \begin{equation}
+        \orbital_i^{(1)} = -2\Helm_i\left[\potential^{(0)} \orbital_i^{(1)}
+                           - \sum_{j \neq i} \fockMat_{ij}^{(0)} \orbital_j^{(1)}
+                           + \bigg(1 - \sum_j |\orbital_j^{(0)}\rangle\langle\orbital_j^{(0)}|\bigg) \fockOper^{(1)} \orbital_i^{(0)}
+                           \right]
+      \end{equation}
+  \end{itemize}
+\end{frame}
