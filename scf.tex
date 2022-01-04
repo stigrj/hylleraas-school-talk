@@ -138,7 +138,7 @@
 
   \textbf{LCAO:}
   \begin{itemize}
-    \item Algebraic problem that is an \emph{approximation} (projection) of the physical model
+    \item Matrix problem that is an \emph{approximation} (projection) of the physical model
     \item Finding "exact" solution to \emph{approximate} problem (constraints of fixed basis)
     \item Virtual contributions rotated into occupied space
     \item Fixed potential $\rightarrow$ solution found in single iteration
@@ -233,7 +233,7 @@
       \textbf{Exchange-Correlation operator}
       \begin{equation}
         \nonumber
-        \xc \orbital_p(r) = \left(\frac{\delta E_{xc}}{\delta \rho}\right) \orbital_p(r)
+        \xc \orbital_p(r) = \left(\frac{\delta E_{xc}[\density]}{\delta \rho}\right) \orbital_p(r)
                   %= \frac{\partial F_{xc}}{\partial \density} 
                   %- \nabla \cdot \frac{\partial F_{xc}}{\partial \nabla\density}
       \end{equation}
@@ -330,59 +330,59 @@
   \end{columns}
 \end{frame}
 
-\begin{frame}
-    \frametitle{Localized orbitals}
-    \centering
-    Total energy invariant under unitary transformations among occupied orbitals
-    \begin{equation}
-	\nonumber
-	\phi_i = \sum_j L_{ij} \phi_i, \qquad \qquad L^\ast L = LL^\ast = I
-    \end{equation}
-
-    \begin{columns}
-    \begin{column}[b]{0.48\linewidth}
-    \centering
-    \includegraphics[scale=0.25, clip, viewport = 80 560 600 700]{figures/alkane.pdf}\\
-    \includegraphics[scale=0.25, clip, viewport = 80 560 600 700]{figures/can_orb_1.pdf}\\
-    \includegraphics[scale=0.25, clip, viewport = 80 560 600 700]{figures/can_orb_2.pdf}\\
-
-    \vspace{2mm}
-
-    \begin{equation}
-        \nonumber
-        \orbital_i =\ -2\Helm_i\Bigg[\potential \orbital_i\Bigg]
-    \end{equation}
-    \end{column}
-
-    \begin{column}[b]{0.48\linewidth}
-\only<2>{
-    \centering
-    \includegraphics[scale=0.25, clip, viewport = 80 560 600 700]{figures/loc_orb_1.pdf}\\
-    \includegraphics[scale=0.25, clip, viewport = 80 560 600 700]{figures/loc_orb_2.pdf}\\
-    \includegraphics[scale=0.25, clip, viewport = 80 560 600 700]{figures/loc_orb_3.pdf}\\
-
-    \vspace{2mm}
-
-    \begin{equation}
-        \nonumber
-        \orbital_i =\ -2\Helm_i\Bigg[\potential \orbital_i
-        - \sum_{j \neq i}\fockMat_{ij} \orbital_j\Bigg]
-    \end{equation}
-}
-    \end{column}
-    \end{columns}
-
-    \vspace{4mm}
-
-    \centering
-    \tiny
-    S.F. Boys,
-    {\it Rev. Mod. Phys.},
-    \textbf{32:296}
-    (1960)\\
-    J.M. Foster, S.F. Boys,
-    {\it Rev. Mod. Phys.},
-    \textbf{32:300}
-    (1960)
-\end{frame}
+%\begin{frame}
+%    \frametitle{Localized orbitals}
+%    \centering
+%    Total energy invariant under unitary transformations among occupied orbitals
+%    \begin{equation}
+%	\nonumber
+%	\phi_i = \sum_j L_{ij} \phi_i, \qquad \qquad L^\ast L = LL^\ast = I
+%    \end{equation}
+%
+%    \begin{columns}
+%    \begin{column}[b]{0.48\linewidth}
+%    \centering
+%    \includegraphics[scale=0.25, clip, viewport = 80 560 600 700]{figures/alkane.pdf}\\
+%    \includegraphics[scale=0.25, clip, viewport = 80 560 600 700]{figures/can_orb_1.pdf}\\
+%    \includegraphics[scale=0.25, clip, viewport = 80 560 600 700]{figures/can_orb_2.pdf}\\
+%
+%    \vspace{2mm}
+%
+%    \begin{equation}
+%        \nonumber
+%        \orbital_i =\ -2\Helm_i\Bigg[\potential \orbital_i\Bigg]
+%    \end{equation}
+%    \end{column}
+%
+%    \begin{column}[b]{0.48\linewidth}
+%\only<2>{
+%    \centering
+%    \includegraphics[scale=0.25, clip, viewport = 80 560 600 700]{figures/loc_orb_1.pdf}\\
+%    \includegraphics[scale=0.25, clip, viewport = 80 560 600 700]{figures/loc_orb_2.pdf}\\
+%    \includegraphics[scale=0.25, clip, viewport = 80 560 600 700]{figures/loc_orb_3.pdf}\\
+%
+%    \vspace{2mm}
+%
+%    \begin{equation}
+%        \nonumber
+%        \orbital_i =\ -2\Helm_i\Bigg[\potential \orbital_i
+%        - \sum_{j \neq i}\fockMat_{ij} \orbital_j\Bigg]
+%    \end{equation}
+%}
+%    \end{column}
+%    \end{columns}
+%
+%    \vspace{4mm}
+%
+%    \centering
+%    \tiny
+%    S.F. Boys,
+%    {\it Rev. Mod. Phys.},
+%    \textbf{32:296}
+%    (1960)\\
+%    J.M. Foster, S.F. Boys,
+%    {\it Rev. Mod. Phys.},
+%    \textbf{32:300}
+%    (1960)
+%\end{frame}
 
